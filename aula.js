@@ -11,3 +11,12 @@ function multiply(a, b = 1){//aqui eu posso atribuir um valor a uma variavel nã
 }
 
 console.log(multiply(5))
+
+//
+var obj = {
+    sum2(a, b) {
+        return a + b;
+    }
+}
+
+console.log(obj);
