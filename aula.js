@@ -1,22 +1,37 @@
-//arrow functions
-var  sum = (a, b) => {
-    return a + b;
+//Rest operator ... dentro dos argumentos - pega todos os parametros e transforma num array
+
+function sum(...args) {
+    return args.reduce((acumulado, value) => acumulado + value, 0);//evita o uso de linhas que implementa a soma de todo o array
 }
 
-console.log(sum(5, 15));
+console.log(sum(5, 5, 5, 2, 3));
 
-//default functions arguments
-function multiply(a, b = 1){//aqui eu posso atribuir um valor a uma variavel não informada nos parametros
-    return a * b;
+//spread operator - pega array e transforma em argumentos para a função
+
+const str = 'DIO';
+const arr = [1, 2, 3, 4]
+const arr2 = [5, 6, 7]
+
+function logArgs(...args){
+    console.log(args);
 }
 
-console.log(multiply(5))
+logArgs(...str);//aplica o spread
+logArgs(...arr);
+const arrConcatenado = [...arr, ...arr2]; //substitui o concat
+console.log(arrConcatenado);
 
-//
-var obj = {
-    sum2(a, b) {
-        return a + b;
-    }
-}
+const obj = {//so se pode criar spread em objetos gerando novos objetos
+    test: 123
+};
+const obj2 = {
+    ...obj,
+    test2: 'hello'
+};
 
-console.log(obj);
+console.log(obj2);
+
+//Destructuring Assignment
+
+var [maca2, banan2, laranja2, [tomate2]] = ['maca', 'banana', 'laranja', ['tomate']];
+//evita a criação de uma variavel para destruir o array para cada posição
