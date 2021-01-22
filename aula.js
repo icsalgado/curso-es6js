@@ -30,10 +30,22 @@ const obj = {
     }
 };
 
-const it = obj[Symbol.iterator]();
+//Generators, são funções com pausas e continue, atravez de interfaces
+
+function* hello() {
+    console.log('hello');
+    yield 1; //executa uma pausa
+    console.log('from');
+    yield 2;
+    console.log('function');
+    const value = yield 3;
+    console.log(value);
+}
+
+const it = hello();
 
 console.log(it.next());
 console.log(it.next());
 console.log(it.next());
-console.log(it.next());
+console.log(it.next('Outside'));
 console.log(it.next());
